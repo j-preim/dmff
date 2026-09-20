@@ -31,7 +31,7 @@ img { max-width: 100%; }
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(13,24,35,.88); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
 .nav-shell { max-width: 1240px; margin: 0 auto; height: 72px; padding: 0 22px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .brand-lockup { display: flex; align-items: center; gap: 12px; font-family: var(--display); text-transform: uppercase; font-weight: 800; letter-spacing: .06em; font-size: 1.4rem; }
-.brand-lockup img { width: 48px; height: auto; }
+.brand-lockup img { width: 90px; height: 60px; }
 .main-nav { display: flex; gap: 8px; }
 .main-nav a { padding: 10px 13px; border: 1px solid transparent; border-radius: 5px; color: var(--dm-ice-1); font-family: var(--display); text-transform: uppercase; font-size: .72rem; letter-spacing: .07em; }
 .main-nav a:hover { color: white; border-color: rgba(95,183,9,.25); background: rgba(95,183,9,.04); }

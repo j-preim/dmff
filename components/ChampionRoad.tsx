@@ -22,7 +22,7 @@ export function ChampionRoad({ leagues }: { leagues: FantasyLeague[] }) {
               </>
             ) : (
               <>
-                <span className="champion-silhouette">♟</span>
+                <Image src="/brand/dm-helmet-cartoon-white.png" alt="TBD" width={80} height={80} style={{ marginBottom: '6px', marginTop: '12px' }} />
                 <strong>TBD</strong>
                 <span>Awaiting champion</span>
               </>
@@ -52,7 +52,7 @@ export function ChampionRoad({ leagues }: { leagues: FantasyLeague[] }) {
               </>
             ) : (
               <>
-                <span className="champion-silhouette">♟</span>
+                <Image src="/brand/dm-helmet-cartoon-navy.png" alt="TBD" width={80} height={80} style={{ marginBottom: '6px', marginTop: '12px' }} />
                 <strong>TBD</strong>
                 <span>Awaiting champion</span>
               </>

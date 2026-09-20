@@ -34,7 +34,7 @@ body:has(.home-page) .site-footer { display: none; }
   text-transform: uppercase;
 }
 
-.preview-brand img { width: 58px; height: 43px; object-fit: contain; }
+.preview-brand img { width: 80px; height: 60px; }
 .preview-brand .brand-copy { display: grid; gap: 3px; line-height: 1; }
 .preview-brand strong {
   color: #f5f8f8;
@@ -47,7 +47,7 @@ body:has(.home-page) .site-footer { display: none; }
 .preview-brand small {
   color: #e1e9eb;
   font-family: var(--display);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: .215em;
   white-space: nowrap;
@@ -384,6 +384,7 @@ body:has(.home-page) .site-footer { display: none; }
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
+  margin-top: 12px;
 }
 .champion-slot > span:last-child {
   color: #cddbdd;

@@ -16,7 +16,7 @@ export default async function Home() {
         <div className="hero-vignette" />
         <div className="hero-copy">
           <span className="pixel-chip">2026 SEASON</span>
-          <h1>Two leagues.<br/>One final faceoff.</h1>
+          <h1>Two leagues.<br/>One championship.</h1>
           <p>Tracking ESPN leagues 2113121559 and 241743 all season long.</p>
           <div className="hero-actions">
             <Link className="button primary" href="/standings">View Standings</Link>
@@ -35,7 +35,9 @@ export default async function Home() {
         <section className="panel snapshot-panel">
           <div className="section-heading row-heading">
             <div><span className="eyebrow">Across both leagues</span><h2>Power snapshot</h2></div>
-            <Link href="/power-rankings">Full rankings →</Link>
+            <Link href="/power-rankings" className="full-rankings-link">
+              Full rankings →
+            </Link>
           </div>
           {topFive.length ? (
             <div className="snapshot-list">

@@ -71,7 +71,7 @@ function normalizeLeague(raw: any, leagueId: string, season: number): FantasyLea
       },
       pointsFor: n(overall.pointsFor ?? team.points),
       pointsAgainst: n(overall.pointsAgainst),
-      streak: overall.streakType && overall.streakLength ? `${overall.streakType}${overall.streakLength}` : undefined,
+      streak: overall.streakType && overall.streakLength ? `${overall.streakType.slice(0, 1).toUpperCase()}${overall.streakLength}` : undefined,
       playoffSeed: n(team.playoffSeed) || undefined,
       finalRank: n(team.rankCalculatedFinal) || undefined,
       roster: normalizeRoster(team?.roster?.entries)

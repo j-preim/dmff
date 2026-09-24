@@ -16,7 +16,7 @@ export default async function Home() {
         <div className="hero-vignette" />
         <div className="hero-copy">
           <span className="pixel-chip">2026 SEASON</span>
-          <h1>Two leagues.<br/>One championship.</h1>
+          <h1>Two leagues.<br/>One champion.</h1>
           <p>Tracking ESPN leagues 2113121559 and 241743 all season long.</p>
           <div className="hero-actions">
             <Link className="button primary" href="/standings">View Standings</Link>
@@ -29,8 +29,6 @@ export default async function Home() {
         <section className="league-grid" aria-label="Fantasy leagues">
           {leagues.map((league) => <LeagueCard league={league} key={league.id} />)}
         </section>
-
-        <ChampionRoad leagues={leagues} />
 
         <section className="panel snapshot-panel">
           <div className="section-heading row-heading">
@@ -52,6 +50,8 @@ export default async function Home() {
             </div>
           ) : <div className="empty-state"><strong>Power rankings will populate after ESPN sync.</strong></div>}
         </section>
+
+         <ChampionRoad leagues={leagues} />
       </div>
     </main>
   );

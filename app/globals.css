@@ -104,8 +104,8 @@ img { max-width: 100%; }
 .snapshot-team span { color: var(--dm-ice-1); font-size: .8rem; }
 .snapshot-record, .snapshot-score { font-family: var(--display); text-align: right; }
 .snapshot-score { color: var(--dm-teal); }
-.full-rankings-link { font-family: var(--display); font-size: .68rem; color: var(--dm-teal); text-transform: uppercase; border-bottom: 1px solid transparent; }
-.full-rankings-link:hover { border-bottom: 1px solid var(--dm-ice-1); }
+.full-rankings-link { display: block; font-family: var(--display); font-size: .78rem; color: var(--dm-teal); text-transform: uppercase; margin-top: 22px; text-align: end; }
+.full-rankings-link:hover { color: var(--dm-ice-1); }
 
 .stack { display: grid; gap: 24px; }
 .table-panel { padding: 22px; overflow: hidden; }
@@ -187,10 +187,11 @@ img { max-width: 100%; }
   .button { text-align: center; }
   .home-shell { padding: 26px 0 40px; }
   .league-card, .snapshot-panel, .table-panel { padding: 16px; }
-  .league-card h2 { font-size: 1.25rem; }
+  .league-card h2 { font-size: 1.15rem; }
   .leader-row { display: inline-flex; }
   .leader-record { grid-column: 2; text-align: left; }
-  .eyebrow { font-size: .75rem; }
-  .section-heading h2 { font-size: 1.35rem; color: var(--dm-ice-1); }
+  .eyebrow { font-size: .70rem; }
+  .section-heading h2 { font-size: 1.15rem; color: var(--dm-ice-1); }
+  .full-rankings-link { display: block; margin-top: 14px; text-align: end; font-size: .66rem; }
   .faceoff-panel { padding: 22px 14px 18px; }
 }

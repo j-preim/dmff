@@ -32,9 +32,6 @@ export default async function Home() {
         <section className="panel snapshot-panel">
           <div className="section-heading row-heading">
             <div><span className="eyebrow">Across both leagues</span><h2>Power snapshot</h2></div>
-            <Link href="/power-rankings" className="full-rankings-link">
-              Full rankings →
-            </Link>
           </div>
           {topFive.length ? (
             <div className="snapshot-list">
@@ -48,6 +45,9 @@ export default async function Home() {
               ))}
             </div>
           ) : <div className="empty-state"><strong>Power rankings will populate after ESPN sync.</strong></div>}
+        <Link href="/power-rankings" className="full-rankings-link">
+              Full rankings →
+            </Link>
         </section>
 
          <ChampionRoad leagues={leagues} />

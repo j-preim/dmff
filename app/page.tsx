@@ -17,7 +17,6 @@ export default async function Home() {
         <div className="hero-copy">
           <span className="pixel-chip">2026 SEASON</span>
           <h1>Two leagues.<br/>One champion.</h1>
-          <p>Tracking ESPN leagues 2113121559 and 241743 all season long.</p>
           <div className="hero-actions">
             <Link className="button primary" href="/standings">View Standings</Link>
             <Link className="button secondary" href="/power-rankings">Power Rankings</Link>

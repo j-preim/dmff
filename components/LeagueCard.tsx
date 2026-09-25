@@ -7,10 +7,9 @@ export function LeagueCard({ league }: { league: FantasyLeague }) {
   return (
     <article className="panel league-card">
       <div className="panel-kicker">
-        <span>LEAGUE {league.id}</span>
+        <h2>{league.name}</h2>
         <LeagueStatus league={league} />
       </div>
-      <h2>{league.name}</h2>
       {leader ? (
         <div className="leader-row">
           <TeamLogo src={leader.logo} name={leader.name} size={56} />

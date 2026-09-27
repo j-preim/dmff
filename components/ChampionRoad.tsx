@@ -8,23 +8,55 @@ export function ChampionRoad({ leagues }: { leagues: FantasyLeague[] }) {
   const right = leagues[1] ? getChampion(leagues[1]) : undefined;
 
   return (
-    <section className="faceoff-panel">
-      <div className="section-heading">
-        <span className="eyebrow">Road to the ultimate championship</span>
-        <h2>Digital Mass Fantasy Faceoff</h2>
-      </div>
-      <div className="faceoff-grid">
-        <div className="champion-side">
-          <Image src="/brand/dm-helmet-white.png" alt="White Digital Mass helmet" width={330} height={259} />
-          <div className="champion-team">
-            {left ? <><TeamLogo src={left.logo} name={left.name} /><div><strong>{left.name}</strong><span>{left.manager}</span></div></> : <><span className="tbd-mark">?</span><div><strong>League 1 Champion</strong><span>TBD</span></div></>}
+    <section className="preview-panel road-panel">
+      <div className="preview-panel-title">Road to the Faceoff</div>
+      <div className="road-grid">
+        <div className="road-side">
+          <span className="road-label">League 1 Champion</span>
+          <div className="champion-slot">
+            {left ? (
+              <>
+                <TeamLogo src={left.logo} name={left.name} size={48} />
+                <strong>{left.name}</strong>
+                <span>{left.manager}</span>
+              </>
+            ) : (
+              <>
+                <span className="champion-silhouette">♟</span>
+                <strong>TBD</strong>
+                <span>Awaiting champion</span>
+              </>
+            )}
           </div>
         </div>
-        <div className="versus-mark"><span>VS</span><small>ULTIMATE<br/>CHAMPIONSHIP</small></div>
-        <div className="champion-side right">
-          <Image src="/brand/dm-helmet-navy.png" alt="Navy Digital Mass helmet" width={330} height={259} />
-          <div className="champion-team">
-            {right ? <><TeamLogo src={right.logo} name={right.name} /><div><strong>{right.name}</strong><span>{right.manager}</span></div></> : <><span className="tbd-mark">?</span><div><strong>League 2 Champion</strong><span>TBD</span></div></>}
+
+        <div className="road-connector left-connector" aria-hidden="true" />
+
+        <div className="trophy-column">
+          <div className="trophy-mark">
+            <Image src="/brand/dm-cloud-green-white.png" alt="" width={46} height={32} />
+          </div>
+          <strong>The Ultimate<br/>Championship<br/>Matchup</strong>
+        </div>
+
+        <div className="road-connector right-connector" aria-hidden="true" />
+
+        <div className="road-side">
+          <span className="road-label">League 2 Champion</span>
+          <div className="champion-slot">
+            {right ? (
+              <>
+                <TeamLogo src={right.logo} name={right.name} size={48} />
+                <strong>{right.name}</strong>
+                <span>{right.manager}</span>
+              </>
+            ) : (
+              <>
+                <span className="champion-silhouette">♟</span>
+                <strong>TBD</strong>
+                <span>Awaiting champion</span>
+              </>
+            )}
           </div>
         </div>
       </div>

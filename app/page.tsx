@@ -10,6 +10,7 @@ export default async function Home() {
   const allTeams = leagues.flatMap((league) => league.teams);
   const rankedTeams = rankTeams(allTeams);
   const topFive = rankedTeams.slice(0, 5);
+  const isDemo = leagues.some((league) => league.source === "demo");
 
   const leagueOneTeams = leagues[0]?.teams ?? [];
   const pointsForLeader = [...leagueOneTeams].sort((a, b) => b.pointsFor - a.pointsFor)[0];
@@ -19,32 +20,39 @@ export default async function Home() {
   )[0];
   const leagueOnePowerLeader = rankTeams(leagueOneTeams)[0];
 
-  const leaderRows = [
-    {
-      icon: "◆",
-      label: "Points For",
-      team: pointsForLeader,
-      value: pointsForLeader ? pointsForLeader.pointsFor.toFixed(1) : "—"
-    },
-    {
-      icon: "◇",
-      label: "Points Against",
-      team: pointsAgainstLeader,
-      value: pointsAgainstLeader ? pointsAgainstLeader.pointsAgainst.toFixed(1) : "—"
-    },
-    {
-      icon: "↗",
-      label: "Best Record",
-      team: recordLeader,
-      value: recordLeader ? `${recordLeader.record.wins}-${recordLeader.record.losses}` : "—"
-    },
-    {
-      icon: "✦",
-      label: "Power Score",
-      team: leagueOnePowerLeader,
-      value: leagueOnePowerLeader ? leagueOnePowerLeader.powerScore.toFixed(1) : "—"
-    }
-  ];
+  const leaderRows = isDemo
+    ? [
+        { icon: "♜", label: "Points For", teamName: "Gridiron Gurus", value: "342.6" },
+        { icon: "◇", label: "Points Against", teamName: "Sack Exchange", value: "267.4" },
+        { icon: "↗", label: "Highest Week", teamName: "Touchdown Town", value: "198.2" },
+        { icon: "↘", label: "Lowest Week", teamName: "Bench Warmers", value: "72.6" }
+      ]
+    : [
+        {
+          icon: "♜",
+          label: "Points For",
+          teamName: pointsForLeader?.name || "Awaiting ESPN sync",
+          value: pointsForLeader ? pointsForLeader.pointsFor.toFixed(1) : "—"
+        },
+        {
+          icon: "◇",
+          label: "Points Against",
+          teamName: pointsAgainstLeader?.name || "Awaiting ESPN sync",
+          value: pointsAgainstLeader ? pointsAgainstLeader.pointsAgainst.toFixed(1) : "—"
+        },
+        {
+          icon: "↗",
+          label: "Best Record",
+          teamName: recordLeader?.name || "Awaiting ESPN sync",
+          value: recordLeader ? `${recordLeader.record.wins}-${recordLeader.record.losses}` : "—"
+        },
+        {
+          icon: "✦",
+          label: "Power Score",
+          teamName: leagueOnePowerLeader?.name || "Awaiting ESPN sync",
+          value: leagueOnePowerLeader ? leagueOnePowerLeader.powerScore.toFixed(1) : "—"
+        }
+      ];
 
   return (
     <main className="home-page">
@@ -60,18 +68,21 @@ export default async function Home() {
 
       <div className="home-dashboard">
         <section className="preview-league-grid" aria-label="Fantasy leagues">
-          {leagues.map((league, index) => (
-            <article className="preview-league-card" key={league.id}>
-              <span className="preview-kicker">League {index + 1}</span>
-              <h2>Digital Mass League {index + 1}</h2>
-              <p>League ID: {league.id}</p>
-              <div className="league-meta-row">
-                <span className="meta-item"><b>♟</b>{league.teams.length || 12} Teams</span>
-                <span className="meta-item"><b>▣</b>{league.season} Season</span>
-                <Link href="/standings" aria-label={`View league ${index + 1} standings`} className="square-arrow">›</Link>
-              </div>
-            </article>
-          ))}
+          {leagues.map((league, index) => {
+            const teamCount = league.source === "demo" ? 12 : (league.teams.length || 12);
+            return (
+              <article className="preview-league-card" key={league.id}>
+                <span className="preview-kicker">League {index + 1}</span>
+                <h2>Digital Mass League {index + 1}</h2>
+                <p>League ID: {league.id}</p>
+                <div className="league-meta-row">
+                  <span className="meta-item"><b aria-hidden="true">♟</b>{teamCount} Teams</span>
+                  <span className="meta-item"><b aria-hidden="true">▣</b>{league.season} Season</span>
+                  <Link href="/standings" aria-label={`View league ${index + 1} standings`} className="square-arrow">›</Link>
+                </div>
+              </article>
+            );
+          })}
         </section>
 
         <div className="home-mid-grid">
@@ -86,7 +97,7 @@ export default async function Home() {
                 <div className="leader-stat-row" key={row.label}>
                   <span className="leader-stat-icon" aria-hidden="true">{row.icon}</span>
                   <span className="leader-stat-label">{row.label}</span>
-                  <strong>{row.team?.name || "Awaiting ESPN sync"}</strong>
+                  <strong>{row.teamName}</strong>
                   <b>{row.value}</b>
                 </div>
               ))}

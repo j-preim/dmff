@@ -1,0 +1,20 @@
+.showcase-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  left: 75.15%;
+  top: 13.1%;
+  width: 4.75%;
+  height: 21%;
+  background: url('/brand/hero-final-f.svg') center / contain no-repeat;
+  pointer-events: none;
+}
+
+@media (max-width: 860px) {
+  .showcase-hero::before {
+    left: 75.15%;
+    top: 13.1%;
+    width: 4.75%;
+    height: 21%;
+  }
+}

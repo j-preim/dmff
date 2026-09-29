@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./home-preview.css";
+import "./hero-fix.css";
 import { Nav } from "@/components/Nav";
 
 export const metadata: Metadata = {

@@ -3,16 +3,6 @@ import type { FantasyLeague } from "@/lib/types";
 import { getChampion } from "@/lib/espn";
 import { TeamLogo } from "./TeamLogo";
 
-function EmptyChampion() {
-  return (
-    <>
-      <span className="champion-silhouette" aria-hidden="true"><span /></span>
-      <strong>TBD</strong>
-      <span>Awaiting<br/>Champion</span>
-    </>
-  );
-}
-
 export function ChampionRoad({ leagues }: { leagues: FantasyLeague[] }) {
   const left = leagues[0] ? getChampion(leagues[0]) : undefined;
   const right = leagues[1] ? getChampion(leagues[1]) : undefined;
@@ -30,7 +20,13 @@ export function ChampionRoad({ leagues }: { leagues: FantasyLeague[] }) {
                 <strong>{left.name}</strong>
                 <span>{left.manager}</span>
               </>
-            ) : <EmptyChampion />}
+            ) : (
+              <>
+                <span className="champion-silhouette">♟</span>
+                <strong>TBD</strong>
+                <span>Awaiting champion</span>
+              </>
+            )}
           </div>
         </div>
 
@@ -54,7 +50,13 @@ export function ChampionRoad({ leagues }: { leagues: FantasyLeague[] }) {
                 <strong>{right.name}</strong>
                 <span>{right.manager}</span>
               </>
-            ) : <EmptyChampion />}
+            ) : (
+              <>
+                <span className="champion-silhouette">♟</span>
+                <strong>TBD</strong>
+                <span>Awaiting champion</span>
+              </>
+            )}
           </div>
         </div>
       </div>

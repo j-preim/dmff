@@ -5,7 +5,7 @@ A Next.js site for tracking two ESPN Fantasy Football leagues during the 2026 se
 ## Configured leagues
 
 - `2113121559`
-- `241743`
+- `861772839`
 - Season: `2026`
 
 ## Pages
@@ -57,4 +57,4 @@ The site looks for ESPN's final calculated rank (`rankCalculatedFinal === 1`) to
 
 ## Visual system
 
-The UI is based on the Digital Mass palette and the 16-bit Fantasy Faceoff artwork. Orbitron is used for display text and Urbanist for body/table text via web font loading. No font files are bundled in this project.
+The UI is based on the Digital Mass palette and the Fantasy Faceoff artwork. Orbitron is used for display text and Urbanist for body/table text via web font loading. No font files are bundled in this project.

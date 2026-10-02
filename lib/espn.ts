@@ -45,7 +45,7 @@ const SLOT: Record<number, string> = {
   20: "BE",
   21: "IR",
   22: "",
-  23: "RB/WR/TE",
+  23: "FLEX",
   24: "ER",
   25: "Rookie",
 };

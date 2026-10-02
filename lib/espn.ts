@@ -17,7 +17,7 @@ function n(value: unknown, fallback = 0) {
 
 function managerName(member: any) {
   if (!member) return "Unknown manager";
-  return member.displayName || [member.firstName, member.lastName].filter(Boolean).join(" ") || "Unknown manager";
+  return [member.firstName, member.lastName].filter(Boolean).join(" ") || "Unknown manager";
 }
 
 function playerPoints(stats: any[] | undefined, sourceId: number) {

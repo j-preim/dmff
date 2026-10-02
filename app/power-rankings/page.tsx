@@ -16,7 +16,7 @@ export default async function PowerRankingsPage() {
             <div className="table-row" key={`${team.leagueId}-${team.id}`}>
               <span className="rank-number">#{team.rank}</span>
               <span className="team-cell"><TeamLogo src={team.logo} name={team.name} size={38}/><span><strong>{team.name}</strong><small>{team.manager}</small></span></span>
-              <span>{team.leagueId}</span>
+              <span>{team.leagueName}</span>
               <span>{team.record.wins}-{team.record.losses}{team.record.ties ? `-${team.record.ties}` : ""}</span>
               <span>{team.pointsFor.toFixed(1)}</span>
               <span className="power-meter"><b style={{ width: `${Math.min(100, team.powerScore)}%` }}/><strong>{team.powerScore.toFixed(1)}</strong></span>

@@ -5,7 +5,7 @@ import { Nav } from "@/components/Nav";
 
 export const metadata: Metadata = {
   title: "Digital Mass Fantasy Faceoff",
-  description: "Two ESPN fantasy football leagues. One ultimate champion."
+  description: "Two leagues. One ultimate champion."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

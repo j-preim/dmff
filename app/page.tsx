@@ -73,8 +73,8 @@ export default async function Home() {
             return (
               <article className="preview-league-card" key={league.id}>
                 <span className="preview-kicker">League {index + 1}</span>
-                <h2>Digital Mass League {index + 1}</h2>
-                <p>League ID: {league.id}</p>
+                <h2>{league.name}</h2>
+                {/* <p>League ID: {league.id}</p> */}
                 <div className="league-meta-row">
                   <span className="meta-item"><b aria-hidden="true">♟</b>{teamCount} Teams</span>
                   <span className="meta-item"><b aria-hidden="true">▣</b>{league.season} Season</span>

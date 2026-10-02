@@ -3,12 +3,51 @@ import type { FantasyLeague, FantasyTeam, Player } from "./types";
 import { getDemoLeagues } from "./demo";
 
 const POSITION: Record<number, string> = {
-  1: "QB", 2: "RB", 3: "WR", 4: "TE", 5: "K", 16: "D/ST"
+  1: "QB",
+  2: "RB",
+  3: "WR",
+  4: "TE",
+  5: "K",
+  7: "P",
+  9: "DT",
+  10: "DE",
+  11: "LB",
+  12: "CB",
+  13: "S",
+  14: "Coach",
+  15: "TQB",
+  16: "D/ST",
+  17: "IR",
+  18: "IR",
 };
 
 const SLOT: Record<number, string> = {
-  0: "QB", 2: "RB", 4: "WR", 6: "TE", 16: "D/ST", 17: "K",
-  20: "BE", 21: "IR", 23: "FLEX"
+  0: "QB",
+  1: "TQB",
+  2: "RB",
+  3: "RB/WR",
+  4: "WR",
+  5: "WR/TE",
+  6: "TE",
+  7: "OP",
+  8: "DT",
+  9: "DE",
+  10: "LB",
+  11: "DL",
+  12: "CB",
+  13: "S",
+  14: "DB",
+  15: "DP",
+  16: "D/ST",
+  17: "K",
+  18: "P",
+  19: "HC",
+  20: "BE",
+  21: "IR",
+  22: "",
+  23: "RB/WR/TE",
+  24: "ER",
+  25: "Rookie",
 };
 
 function n(value: unknown, fallback = 0) {

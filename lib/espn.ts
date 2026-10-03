@@ -88,7 +88,7 @@ function normalizeLeague(raw: any, leagueId: string, season: number): FantasyLea
   const leagueName = raw?.settings?.name || `ESPN League ${leagueId}`;
 
   const teams: FantasyTeam[] = (raw?.teams ?? []).map((team: any) => {
-    const ownerId = String(team.primaryOwner || team.owners?.[0] || "");
+    const ownerId = team.owners?.length > 1 ? String(team.owners?.[1]) : String(team.primaryOwner || team.owners?.[0] || "");
     const overall = team?.record?.overall ?? {};
     return {
       id: n(team.id),

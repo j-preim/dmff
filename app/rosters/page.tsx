@@ -7,9 +7,9 @@ export default async function RostersPage() {
     <main className="page-shell page-top">
       <div className="page-title"><span className="eyebrow">Players by team</span><h1>Rosters</h1><p>Starting lineups and benches are normalized from the ESPN roster feed.</p></div>
       <div className="stack">
-        {leagues.map((league) => (
+        {leagues.map((league, index) => (
           <section key={league.id}>
-            <div className="section-heading"><span className="eyebrow">LEAGUE {league.id}</span><h2>{league.name}</h2></div>
+            <div className="section-heading"><span className="eyebrow">LEAGUE {index + 1}</span><h2>{league.name}</h2></div>
             <div className="roster-grid">
               {league.teams.map((team) => (
                 <article className="panel roster-card" key={team.id}>
@@ -19,7 +19,7 @@ export default async function RostersPage() {
                       <div className="player-row" key={`${team.id}-${player.id}-${player.lineupSlot}`}>
                         <span className="position-chip">{player.lineupSlot}</span>
                         <span><strong>{player.fullName}</strong><small>{player.position}{player.injuryStatus && player.injuryStatus !== "ACTIVE" ? ` · ${player.injuryStatus}` : ""}</small></span>
-                        <span className="player-points">{player.actualPoints?.toFixed(1) ?? "—"}</span>
+                        <span className="player-points">{player.projectedPoints?.toFixed(1) ?? "—"}</span>
                       </div>
                     ))}
                     {!team.roster.length && <div className="empty-state compact"><span>Roster unavailable.</span></div>}

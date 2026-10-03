@@ -10,6 +10,7 @@ export type Player = {
   fullName: string;
   position: string;
   proTeamId?: number;
+  proTeam?: string;
   lineupSlot: string;
   injuryStatus?: string;
   actualPoints?: number;

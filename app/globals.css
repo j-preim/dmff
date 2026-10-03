@@ -127,14 +127,18 @@ img { max-width: 100%; }
 
 .roster-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
 .roster-card { padding: 18px; }
-.roster-header { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.roster-header { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 0px solid var(--border); }
 .roster-header h3 { margin: 0; font-family: var(--display); text-transform: uppercase; font-size: 1rem; }
 .roster-header span { color: var(--dm-ice-1); font-size: .8rem; }
 .player-row { display: grid; grid-template-columns: 52px 1fr 46px; gap: 10px; align-items: center; min-height: 48px; border-bottom: 1px solid rgba(225,233,235,.09); }
 .player-row strong, .player-row small { display: block; }
 .player-row small { color: var(--dm-ice-1); font-size: .75rem; }
-.position-chip { font-size: .54rem; border: 1px solid rgba(95,183,9,.45); color: var(--dm-ice-1); padding: 5px 4px; text-align: center; }
+.player-row.header { border-bottom: 1px solid var(--border); }
+.player-position { text-align: left; font-family: var(--display); font-size: .72rem; padding-left: 2px; }
+.player-name { text-align: left; font-family: var(--display); font-size: .72rem; }
+.injury-status { font-size: .80rem; color: var(--dm-tan); margin-left: 4px; }
 .player-points { text-align: right; font-family: var(--display); font-size: .72rem; }
+.position-chip { font-size: .54rem; border: 1px solid rgba(95,183,9,.45); color: var(--dm-ice-1); padding: 5px 4px; text-align: center; }
 
 .empty-state { padding: 18px; border: 1px dashed rgba(225,233,235,.22); margin-top: 18px; display: grid; gap: 5px; color: var(--dm-ice-1); }
 .empty-state strong { color: white; }

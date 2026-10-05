@@ -214,3 +214,43 @@ img { max-width: 100%; }
   font-family: var(--display);
   cursor: pointer;
 }
+
+
+/* Combined Power Rankings */
+.power-leaderboard { overflow: hidden; }
+.power-leaderboard .power-strip-head { align-items: flex-start; }
+.power-context { display: block; margin-top: 5px; color: var(--dm-ice-1); font-family: var(--display); font-size: .58rem; letter-spacing: .11em; text-transform: uppercase; }
+.power-leaderboard-list { display: grid; margin-top: 18px; border-top: 1px solid var(--border); }
+.power-leader { display: grid; grid-template-columns: 54px 46px minmax(0, 1fr) 90px 70px 84px; gap: 14px; align-items: center; min-height: 72px; padding: 11px 14px; border-bottom: 1px solid rgba(225,233,235,.11); background: rgba(19,35,51,.22); }
+.power-leader-first { grid-template-columns: 72px 64px minmax(0, 1fr) 90px 70px 96px; min-height: 104px; border: 1px solid rgba(95,183,9,.45); border-left: 4px solid var(--dm-green); background: linear-gradient(90deg, rgba(95,183,9,.12), rgba(19,35,51,.34) 42%, rgba(0,168,120,.06)); box-shadow: inset 0 0 28px rgba(95,183,9,.035); }
+.power-rank-large, .power-rank-small, .power-record, .power-score, .power-league-tag { font-family: var(--display); }
+.power-rank-large { color: var(--dm-green); font-size: 2rem; font-weight: 900; letter-spacing: -.06em; }
+.power-rank-small { color: var(--dm-teal); font-size: 1rem; font-weight: 900; }
+.power-team-main { min-width: 0; }
+.power-team-main strong { display: block; overflow: hidden; color: var(--dm-white); font-family: var(--display); font-size: .82rem; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.power-leader-first .power-team-main strong { font-size: 1rem; }
+.power-team-main span { display: block; margin-top: 4px; overflow: hidden; color: var(--dm-ice-1); font-size: .78rem; text-overflow: ellipsis; white-space: nowrap; }
+.power-league-tag { justify-self: start; padding: 5px 7px; border: 1px solid rgba(0,168,120,.42); color: var(--dm-ice-2); background: rgba(0,168,120,.07); font-size: .52rem; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.power-record { color: var(--dm-ice-2); font-size: .72rem; text-align: center; }
+.power-score { text-align: right; }
+.power-score strong, .power-score span { display: block; }
+.power-score strong { color: var(--dm-teal); font-size: 1rem; }
+.power-leader-first .power-score strong { color: var(--dm-green); font-size: 1.25rem; }
+.power-score span { margin-top: 2px; color: var(--dm-ice-1); font-size: .48rem; letter-spacing: .09em; text-transform: uppercase; }
+
+@media (max-width: 760px) {
+  .power-leader, .power-leader-first { grid-template-columns: 42px 46px minmax(0, 1fr) 76px; gap: 10px; min-height: 72px; padding: 10px; }
+  .power-leader-first { grid-template-columns: 52px 56px minmax(0, 1fr) 82px; min-height: 90px; }
+  .power-leader-first .team-logo { width: 56px !important; height: 56px !important; }
+  .power-league-tag, .power-record { display: none; }
+  .power-rank-large { font-size: 1.45rem; }
+}
+
+@media (max-width: 520px) {
+  .power-leaderboard .power-strip-head { gap: 12px; }
+  .power-leaderboard .power-strip-head > a { max-width: 100px; text-align: right; }
+  .power-team-main strong { font-size: .7rem; }
+  .power-leader-first .power-team-main strong { font-size: .78rem; }
+  .power-team-main span { font-size: .68rem; }
+  .power-score strong { font-size: .85rem; }
+}

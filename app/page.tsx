@@ -73,10 +73,7 @@ export default async function Home() {
 
         <section className="preview-panel power-strip power-leaderboard">
           <div className="power-strip-head">
-            <div>
-              <div className="preview-panel-title">Combined Power Rankings</div>
-              <span className="power-context">Top 5{leagues[0]?.currentScoringPeriod ? ` • Week ${leagues[0].currentScoringPeriod}` : ""}</span>
-            </div>
+            <div className="preview-panel-title">Combined Power Rankings</div>
             <Link href="/power-rankings">View full power rankings →</Link>
           </div>
 
@@ -86,9 +83,9 @@ export default async function Home() {
                 const leagueNumber = leagues.findIndex((league) => league.id === team.leagueId) + 1;
                 const record = `${team.record.wins}-${team.record.losses}${team.record.ties ? `-${team.record.ties}` : ""}`;
                 return (
-                  <article className={index === 0 ? "power-leader power-leader-first" : "power-leader"} key={`${team.leagueId}-${team.id}`}>
-                    <span className={index === 0 ? "power-rank-large" : "power-rank-small"}>#{team.rank}</span>
-                    <TeamLogo src={team.logo} name={team.name} size={index === 0 ? 64 : 46} />
+                  <article className={"power-leader"} key={`${team.leagueId}-${team.id}`}>
+                    <span className={"power-rank-small"}>#{team.rank}</span>
+                    <TeamLogo src={team.logo} name={team.name} size={46} />
                     <div className="power-team-main">
                       <strong>{team.name}</strong>
                       <span>{team.manager}</span>

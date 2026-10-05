@@ -218,7 +218,7 @@ img { max-width: 100%; }
 
 /* Combined Power Rankings */
 .power-leaderboard { overflow: hidden; }
-.power-leaderboard .power-strip-head { align-items: flex-start; }
+.power-leaderboard .power-strip-head { align-items: center; }
 .power-context { display: block; margin-top: 5px; color: var(--dm-ice-1); font-family: var(--display); font-size: .58rem; letter-spacing: .11em; text-transform: uppercase; }
 .power-leaderboard-list { display: grid; margin-top: 18px; border-top: 1px solid var(--border); }
 .power-leader { display: grid; grid-template-columns: 54px 46px minmax(0, 1fr) 90px 70px 84px; gap: 14px; align-items: center; min-height: 72px; padding: 11px 14px; border-bottom: 1px solid rgba(225,233,235,.11); background: rgba(19,35,51,.22); }

@@ -587,5 +587,5 @@ body:has(.home-page) .site-footer { display: none; }
   .preview-league-card h2 { font-size: 15px; }
   .league-meta-row { gap: 14px; }
   .power-card-grid { grid-template-columns: 1fr; }
-  .power-strip-head { align-items: flex-start; gap: 8px; padding-top: 10px; padding-bottom: 10px; flex-direction: column; }
+  .power-strip-head { align-items: flex-start; gap: 8px; padding-top: 10px; padding-bottom: 10px; }
 }

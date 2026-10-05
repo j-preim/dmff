@@ -29,7 +29,7 @@ const SLOT: Record<number, string> = {
   4: "WR",
   5: "WR/TE",
   6: "TE",
-  7: "OP",
+  7: "SFLEX",
   8: "DT",
   9: "DE",
   10: "LB",

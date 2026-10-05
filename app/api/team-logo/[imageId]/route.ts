@@ -12,19 +12,31 @@ export async function GET(
 
   const response = await fetch(`${MYSTIQUE_BASE}${encodeURIComponent(imageId)}`, {
     headers: {
-      Accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-      "User-Agent": "Mozilla/5.0"
+      Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+      "Upgrade-Insecure-Requests": "1",
+      "User-Agent": "Mozilla/5.0 (Linux; Android 16; Pixel 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36"
     },
     next: { revalidate: 86400 }
   });
 
-  if (!response.ok) {
-    return new Response("Team logo unavailable", { status: response.status });
-  }
+  const contentType = response.headers.get("content-type") || "";
 
-  const contentType = response.headers.get("content-type");
-  if (!contentType?.toLowerCase().startsWith("image/")) {
-    return new Response("Unexpected upstream response", { status: 502 });
+  if (!response.ok || !contentType.toLowerCase().startsWith("image/")) {
+    const upstreamBody = await response.text().catch(() => "");
+    console.error("Mystique team logo request failed", {
+      imageId,
+      status: response.status,
+      statusText: response.statusText,
+      contentType,
+      body: upstreamBody.slice(0, 1000)
+    });
+
+    return new Response("Team logo unavailable", {
+      status: response.ok ? 502 : response.status,
+      headers: {
+        "Cache-Control": "no-store"
+      }
+    });
   }
 
   return new Response(await response.arrayBuffer(), {

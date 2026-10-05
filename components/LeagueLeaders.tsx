@@ -43,7 +43,7 @@ export function LeagueLeaders({ leagues, isDemo }: { leagues: FantasyLeague[]; i
             type="button"
             role="tab"
             aria-selected={selected === index}
-            className={selected === index ? "active" : ""}
+            className={`leaders-tab${selected === index ? " active" : ""}`}
             onClick={() => setSelected(index)}
           >
             League {index + 1}

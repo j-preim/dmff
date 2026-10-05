@@ -200,3 +200,17 @@ img { max-width: 100%; }
   .faceoff-panel { padding: 22px 14px 18px; }
   .champion-side > img { width: min(100%, 280px); }
 }
+
+
+/* Preserve the original League Leaders tab appearance on functional buttons. */
+.leaders-tabs .leaders-tab {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-family: var(--display);
+  cursor: pointer;
+}

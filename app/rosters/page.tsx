@@ -1,11 +1,25 @@
 import { getLeagues } from "@/lib/espn";
 import { TeamLogo } from "@/components/TeamLogo";
 
+const STARTER_SLOT_ORDER = ["QB", "RB", "RB", "WR", "WR", "FLEX", "SFLEX", "D/ST", "K"];
+
+function startersInEspnOrder<T extends { lineupSlot: string }>(roster: T[]) {
+  const remaining = roster.filter((player) => player.lineupSlot !== "BE" && player.lineupSlot !== "IR");
+  const ordered: T[] = [];
+
+  for (const slot of STARTER_SLOT_ORDER) {
+    const index = remaining.findIndex((player) => player.lineupSlot === slot);
+    if (index !== -1) ordered.push(remaining.splice(index, 1)[0]);
+  }
+
+  return ordered;
+}
+
 export default async function RostersPage() {
   const leagues = await getLeagues();
   return (
     <main className="page-shell page-top">
-      <div className="page-title"><span className="eyebrow">Players by team</span><h1>Rosters</h1><p>Starting lineups and benches are normalized from the ESPN roster feed.</p></div>
+      <div className="page-title"><span className="eyebrow">Players by team</span><h1>Rosters</h1><p>Current starting lineups from the ESPN roster feed.</p></div>
       <div className="stack">
         {leagues.map((league, index) => (
           <section key={league.id}>
@@ -20,7 +34,7 @@ export default async function RostersPage() {
                       <span className="player-name">Player</span>
                       <span className="player-points">Proj</span>
                     </div>
-                    {team.roster.slice().sort((a,b) => ((a.lineupSlot === "BE" || a.lineupSlot === "IR") ? 1 : 0) - (b.lineupSlot === "BE" || b.lineupSlot === "IR" ? 1 : 0)).slice(0, 9).map((player) => (
+                    {startersInEspnOrder(team.roster).map((player) => (
                       <div className="player-row" key={`${team.id}-${player.id}-${player.lineupSlot}`}>
                         <span className="position-chip">{player.lineupSlot}</span>
                         <span><strong>{player.fullName}<span className="injury-status">{player.injuryStatus && player.injuryStatus !== "ACTIVE" ? ` ${player.injuryStatus}` : ""}</span></strong><small>{player.position}{` · ${player.proTeam}`}</small></span>

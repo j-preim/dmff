@@ -38,12 +38,9 @@ export default async function Home() {
               <article className="preview-league-card" key={league.id}>
                 <span className="preview-kicker">League {index + 1}</span>
                 <h2>{league.name}</h2>
-                {/* <p>League ID: {league.id}</p> */}
-                <div className="league-meta-row">
-                  <span className="meta-item"><b aria-hidden="true">♟</b>{teamCount} Teams</span>
-                  <span className="meta-item"><b aria-hidden="true">▣</b>{league.season} Season</span>
+                {/* <div className="league-meta-row">
                   <Link href="/standings" aria-label={`View league ${index + 1} standings`} className="square-arrow">›</Link>
-                </div>
+                </div> */}
                 {leader ? (
                   <div className="leader-row">
                     <TeamLogo src={leader.logo} name={leader.name} size={56} />

@@ -70,7 +70,7 @@ img { max-width: 100%; }
 .status-live { color: var(--dm-ice-1); border-color: var(--dm-teal); background: rgba(95,183,9,.08); }
 .status-demo { color: var(--dm-tan); border-color: rgba(236,200,174,.45); background: rgba(236,200,174,.08); }
 .status-offline { color: var(--dm-ice-1); border-color: var(--border); }
-.leader-row { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 13px; border-top: 1px solid var(--border); margin-top: 20px; padding-top: 18px; }
+.leader-row { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 13px; border-top: 1px solid var(--border); margin-top: 16px; padding-top: 18px; }
 .leader-row strong { display: block; }
 .leader-row span { display: block; color: var(--dm-ice-1); font-size: .86rem; }
 .leader-record { text-align: right; }

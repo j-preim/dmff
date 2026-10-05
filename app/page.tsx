@@ -71,25 +71,37 @@ export default async function Home() {
           <ChampionRoad leagues={leagues} />
         </div>
 
-        <section className="preview-panel power-strip">
+        <section className="preview-panel power-strip power-leaderboard">
           <div className="power-strip-head">
-            <div className="preview-panel-title">Combined Power Rankings</div>
+            <div>
+              <div className="preview-panel-title">Combined Power Rankings</div>
+              <span className="power-context">Top 5{leagues[0]?.currentScoringPeriod ? ` • Week ${leagues[0].currentScoringPeriod}` : ""}</span>
+            </div>
             <Link href="/power-rankings">View full power rankings →</Link>
           </div>
 
           {topFive.length ? (
-            <div className="power-card-grid">
-              {topFive.map((team) => (
-                <article className="power-card" key={`${team.leagueId}-${team.id}`}>
-                  <span className="power-rank">{team.rank}</span>
-                  <TeamLogo src={team.logo} name={team.name} size={46} />
-                  <div className="power-card-copy">
-                    <strong>{team.name}</strong>
-                    <span>{team.record.wins}-{team.record.losses}{team.record.ties ? `-${team.record.ties}` : ""}</span>
-                    <b>{team.pointsFor.toFixed(1)}</b>
-                  </div>
-                </article>
-              ))}
+            <div className="power-leaderboard-list">
+              {topFive.map((team, index) => {
+                const leagueNumber = leagues.findIndex((league) => league.id === team.leagueId) + 1;
+                const record = `${team.record.wins}-${team.record.losses}${team.record.ties ? `-${team.record.ties}` : ""}`;
+                return (
+                  <article className={index === 0 ? "power-leader power-leader-first" : "power-leader"} key={`${team.leagueId}-${team.id}`}>
+                    <span className={index === 0 ? "power-rank-large" : "power-rank-small"}>#{team.rank}</span>
+                    <TeamLogo src={team.logo} name={team.name} size={index === 0 ? 64 : 46} />
+                    <div className="power-team-main">
+                      <strong>{team.name}</strong>
+                      <span>{team.manager}</span>
+                    </div>
+                    <span className="power-league-tag">League {leagueNumber || "—"}</span>
+                    <span className="power-record">{record}</span>
+                    <div className="power-score">
+                      <strong>{team.powerScore.toFixed(1)}</strong>
+                      <span>Power</span>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           ) : (
             <div className="preview-empty">Power rankings will populate after ESPN sync.</div>

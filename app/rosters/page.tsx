@@ -32,13 +32,13 @@ export default async function RostersPage() {
                     <div className="player-row header">
                       <span className="player-position">Pos</span>
                       <span className="player-name">Player</span>
-                      <span className="player-points">Proj</span>
+                      <span className="player-points">Rank</span>
                     </div>
                     {startersInEspnOrder(team.roster).map((player) => (
                       <div className="player-row" key={`${team.id}-${player.id}-${player.lineupSlot}`}>
                         <span className="position-chip">{player.lineupSlot}</span>
                         <span><strong>{player.fullName}<span className="injury-status">{player.injuryStatus && player.injuryStatus !== "ACTIVE" ? ` ${player.injuryStatus}` : ""}</span></strong><small>{player.position}{` · ${player.proTeam}`}</small></span>
-                        <span className="player-points">{player.projectedPoints?.toFixed(1) ?? "—"}</span>
+                        <span className="player-points">{player.positionRank ? `${player.position}${player.positionRank}` : "—"}</span>
                       </div>
                     ))}
                     {!team.roster.length && <div className="empty-state compact"><span>Roster unavailable.</span></div>}

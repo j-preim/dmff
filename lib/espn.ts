@@ -138,7 +138,7 @@ function normalizeRoster(entries: any[] | undefined): Player[] {
       proTeam: PRO_TEAM[n(p.proTeamId)] || undefined,
       actualPoints: playerPoints(p.stats, 0),
       projectedPoints: playerPoints(p.stats, 1),
-      positionRank: n(p.rankings?.[0]?.current) || n(p.rankings?.[0]?.rank) || undefined
+      positionRank: n(entry?.playerPoolEntry?.ratings?.[0]?.positionalRanking) || undefined
     };
   });
 }

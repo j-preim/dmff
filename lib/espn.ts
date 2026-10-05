@@ -102,6 +102,21 @@ function managerName(member: any) {
   return [member.firstName, member.lastName].filter(Boolean).join(" ") || "Unknown manager";
 }
 
+function normalizeTeamLogo(team: any) {
+  const logo = typeof team?.logo === "string" ? team.logo.trim() : "";
+  if (!logo) return undefined;
+
+  if (team?.logoType === "CUSTOM") {
+    const match = logo.match(/\/apis\/v1\/domains\/lm\/images\/([^?#/]+)/);
+    const imageId = team?.logoId ?? team?.logoImageId ?? match?.[1];
+    if (imageId) {
+      return `https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/${encodeURIComponent(String(imageId))}`;
+    }
+  }
+
+  return logo;
+}
+
 function playerPoints(stats: any[] | undefined, sourceId: number) {
   if (!Array.isArray(stats)) return undefined;
   const candidates = stats.filter((s) => s?.statSourceId === sourceId && typeof s?.appliedTotal === "number");
@@ -141,7 +156,7 @@ function normalizeLeague(raw: any, leagueId: string, season: number): FantasyLea
       name: team.name || [team.location, team.nickname].filter(Boolean).join(" ") || `Team ${team.id}`,
       abbrev: team.abbrev || undefined,
       manager: managerName(memberMap.get(ownerId)),
-      logo: team.logo || undefined,
+      logo: normalizeTeamLogo(team),
       record: {
         wins: n(overall.wins),
         losses: n(overall.losses),

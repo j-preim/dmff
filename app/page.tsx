@@ -31,6 +31,9 @@ export default async function Home() {
         <section className="preview-league-grid" aria-label="Fantasy leagues">
           {leagues.map((league, index) => {
             const teamCount = league.source === "demo" ? 12 : (league.teams.length || 12);
+            const leader = [...league.teams].sort(
+              (a, b) => b.record.percentage - a.record.percentage || b.pointsFor - a.pointsFor
+            )[0];
             return (
               <article className="preview-league-card" key={league.id}>
                 <span className="preview-kicker">League {index + 1}</span>
@@ -41,6 +44,25 @@ export default async function Home() {
                   <span className="meta-item"><b aria-hidden="true">▣</b>{league.season} Season</span>
                   <Link href="/standings" aria-label={`View league ${index + 1} standings`} className="square-arrow">›</Link>
                 </div>
+                {leader ? (
+                  <div className="leader-row">
+                    <TeamLogo src={leader.logo} name={leader.name} size={56} />
+                    <div>
+                      <span className="eyebrow">Current leader</span>
+                      <strong>{leader.name}</strong>
+                      <span>{leader.manager}</span>
+                    </div>
+                    <div className="leader-record">
+                      <strong>{leader.record.wins}-{leader.record.losses}{leader.record.ties ? `-${leader.record.ties}` : ""}</strong>
+                      <span>{leader.pointsFor.toFixed(1)} PF</span>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="empty-state">
+                    <strong>Waiting for ESPN league data</strong>
+                    <span>{league.error || "League data is currently unavailable."}</span>
+                  </div>
+                )}
               </article>
             );
           })}

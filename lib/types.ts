@@ -15,6 +15,7 @@ export type Player = {
   injuryStatus?: string;
   actualPoints?: number;
   projectedPoints?: number;
+  positionRank?: number;
 };
 
 export type FantasyTeam = {

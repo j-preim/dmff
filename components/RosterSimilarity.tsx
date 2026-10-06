@@ -46,16 +46,16 @@ export function RosterSimilarity({ leagues }: { leagues: FantasyLeague[] }) {
       </div>
       <div className="similarity-list">
         {matches.map((match, index) => (
-          <article className={index === 0 ? "similarity-match similarity-match-first" : "similarity-match"} key={`${match.left.id}-${match.right.id}`}>
+          <article className="similarity-match" key={`${match.left.id}-${match.right.id}`}>
             <span className="similarity-rank">#{index + 1}</span>
             <div className="similarity-team">
-              <TeamLogo src={match.left.logo} name={match.left.abbrev || match.left.name} size={index === 0 ? 52 : 40} />
+              <TeamLogo src={match.left.logo} name={match.left.abbrev || match.left.name} size={44} />
               <strong>{match.left.name}</strong>
               <small>League 1</small>
             </div>
-            <span className="similarity-vs">×</span>
+            <span className="similarity-vs" aria-label="versus"><i>×</i></span>
             <div className="similarity-team">
-              <TeamLogo src={match.right.logo} name={match.right.abbrev || match.right.name} size={index === 0 ? 52 : 40} />
+              <TeamLogo src={match.right.logo} name={match.right.abbrev || match.right.name} size={44} />
               <strong>{match.right.name}</strong>
               <small>League 2</small>
             </div>

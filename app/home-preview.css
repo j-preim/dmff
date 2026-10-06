@@ -451,7 +451,7 @@ body:has(.home-page) .site-footer { display: none; }
   text-transform: uppercase;
 }
 
-.power-strip { min-height: 132px; padding: 0 14px 10px; }
+.power-strip { min-height: 132px; padding: 0 14px 10px; margin-bottom: 22px;}
 .power-strip-head {
   position: relative;
   z-index: 2;
@@ -600,7 +600,7 @@ body:has(.home-page) .site-footer { display: none; }
 .similarity-rank { color: var(--dm-teal); font-family: var(--display); font-size: .9rem; font-weight: 900; }
 .similarity-team { min-width: 0; display: grid; grid-template-columns: auto minmax(0,1fr); grid-template-rows: auto auto auto; column-gap: 9px; align-items: center; }
 .similarity-team .team-logo, .similarity-team .team-logo-fallback { grid-row: 1 / 4; }
-.similarity-team strong { overflow: hidden; color: var(--dm-white); font-family: var(--display); font-size: .72rem; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.similarity-team strong { overflow: hidden; color: var(--dm-white); font-family: var(--display); font-size: .72rem; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; margin-bottom: 2px; }
 .similarity-team small { color: var(--dm-ice-2); font-size: .68rem; }
 .similarity-team em { color: var(--dm-ice-1); font-family: var(--display); font-size: .5rem; font-style: normal; letter-spacing: .07em; text-transform: uppercase; }
 .similarity-score { text-align: right; font-family: var(--display); }

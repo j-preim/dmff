@@ -52,13 +52,11 @@ export function RosterSimilarity({ leagues }: { leagues: FantasyLeague[] }) {
               <TeamLogo src={match.left.logo} name={match.left.abbrev || match.left.name} size={44} />
               <strong>{match.left.name}</strong>
               <small>{match.left.manager}</small>
-              <em>League 1</em>
             </div>
             <div className="similarity-team">
               <TeamLogo src={match.right.logo} name={match.right.abbrev || match.right.name} size={44} />
               <strong>{match.right.name}</strong>
               <small>{match.right.manager}</small>
-              <em>League 2</em>
             </div>
             <div className="similarity-score">
               <strong>{match.shared.length}</strong>

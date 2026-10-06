@@ -72,8 +72,6 @@ export default async function Home() {
           <ChampionRoad leagues={leagues} />
         </div>
 
-        <RosterSimilarity leagues={leagues} />
-
         <section className="preview-panel power-strip power-leaderboard">
           <div className="power-strip-head">
             <div className="preview-panel-title">Combined Power Rankings</div>
@@ -107,6 +105,9 @@ export default async function Home() {
             <div className="preview-empty">Power rankings will populate after ESPN sync.</div>
           )}
         </section>
+
+        <RosterSimilarity leagues={leagues} />
+        
       </div>
     </main>
   );

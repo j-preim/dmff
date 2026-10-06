@@ -155,7 +155,7 @@ function normalizeLeague(raw: any, leagueId: string, season: number): FantasyLea
       leagueId,
       leagueName,
       name: team.name || [team.location, team.nickname].filter(Boolean).join(" ") || `Team ${team.id}`,
-      abbrev: team.abbrev || undefined,
+      abbrev: team.abbrev,
       manager: managerName(memberMap.get(ownerId)),
       logo: normalizeTeamLogo(team),
       record: {

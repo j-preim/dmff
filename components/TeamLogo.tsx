@@ -29,14 +29,14 @@ function teamLogoUrl(src?: string) {
   return value;
 }
 
-export function TeamLogo({ src, name, size = 48 }: { src?: string; name: string; size?: number }) {
+export function TeamLogo({ src, name, size = 48 }: { src?: string; name?: string; size?: number }) {
   const [failed, setFailed] = useState(false);
   const logo = teamLogoUrl(src);
 
   if (!logo || failed) {
     return (
       <div className="team-logo-fallback" style={{ width: size, height: size }}>
-        {name.slice(0, 2).toUpperCase()}
+        {name?.toUpperCase()}
       </div>
     );
   }

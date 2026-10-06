@@ -12,7 +12,7 @@ export function LeagueCard({ league }: { league: FantasyLeague }) {
       </div>
       {leader ? (
         <div className="leader-row">
-          <TeamLogo src={leader.logo} name={leader.name} size={56} />
+          <TeamLogo src={leader.logo} name={leader.abbrev} size={56} />
           <div>
             <span className="eyebrow">Current leader</span>
             <strong>{leader.name}</strong>

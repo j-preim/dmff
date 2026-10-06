@@ -18,7 +18,7 @@ export default async function StandingsPage() {
                 {teams.map((team, i) => (
                   <div className={`table-row ${i < (league.playoffTeamCount || 0) ? "playoff-row" : ""}`} key={team.id}>
                     <span className="rank-number">{team.playoffSeed || i + 1}</span>
-                    <span className="team-cell"><TeamLogo src={team.logo} name={team.name} size={38}/><span><strong>{team.name}</strong><small>{team.manager}</small></span></span>
+                    <span className="team-cell"><TeamLogo src={team.logo} name={team.abbrev} size={38}/><span><strong>{team.name}</strong><small>{team.manager}</small></span></span>
                     <span>{team.record.wins}-{team.record.losses}-{team.record.ties}</span>
                     <span>{team.pointsFor.toFixed(1)}</span>
                     <span>{team.pointsAgainst.toFixed(1)}</span>

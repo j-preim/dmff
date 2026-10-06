@@ -27,7 +27,7 @@ export default async function RostersPage() {
             <div className="roster-grid">
               {league.teams.map((team) => (
                 <article className="panel roster-card" key={team.id}>
-                  <div className="roster-header"><TeamLogo src={team.logo} name={team.name} size={52}/><div><h3>{team.name}</h3><span>{team.manager} · {team.record.wins}-{team.record.losses}</span></div></div>
+                  <div className="roster-header"><TeamLogo src={team.logo} name={team.abbrev} size={52}/><div><h3>{team.name}</h3><span>{team.manager} · {team.record.wins}-{team.record.losses}</span></div></div>
                   <div className="mini-roster">
                     <div className="player-row header">
                       <span className="player-position">Pos</span>

@@ -43,7 +43,7 @@ export default async function Home() {
                 </div> */}
                 {leader ? (
                   <div className="leader-row">
-                    <TeamLogo src={leader.logo} name={leader.name} size={56} />
+                    <TeamLogo src={leader.logo} name={leader.abbrev} size={56} />
                     <div>
                       <span className="eyebrow">Current leader</span>
                       <strong>{leader.name}</strong>
@@ -85,7 +85,7 @@ export default async function Home() {
                 return (
                   <article className={"power-leader"} key={`${team.leagueId}-${team.id}`}>
                     <span className={"power-rank-small"}>#{team.rank}</span>
-                    <TeamLogo src={team.logo} name={team.name} size={46} />
+                    <TeamLogo src={team.logo} name={team.abbrev} size={46} />
                     <div className="power-team-main">
                       <strong>{team.name}</strong>
                       <span>{team.manager}</span>

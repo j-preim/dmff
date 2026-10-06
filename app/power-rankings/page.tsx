@@ -15,7 +15,7 @@ export default async function PowerRankingsPage() {
           {ranked.map((team) => (
             <div className="table-row" key={`${team.leagueId}-${team.id}`}>
               <span className="rank-number">#{team.rank}</span>
-              <span className="team-cell"><TeamLogo src={team.logo} name={team.name} size={38}/><span><strong>{team.name}</strong><small>{team.manager}</small></span></span>
+              <span className="team-cell"><TeamLogo src={team.logo} name={team.abbrev} size={38}/><span><strong>{team.name}</strong><small>{team.manager}</small></span></span>
               <span>{team.leagueName}</span>
               <span>{team.record.wins}-{team.record.losses}{team.record.ties ? `-${team.record.ties}` : ""}</span>
               <span>{team.pointsFor.toFixed(1)}</span>

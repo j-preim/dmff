@@ -589,3 +589,31 @@ body:has(.home-page) .site-footer { display: none; }
   .power-card-grid { grid-template-columns: 1fr; }
   .power-strip-head { align-items: flex-start; gap: 8px; padding-top: 10px; padding-bottom: 10px; }
 }
+
+
+/* Cross-league full-roster similarity */
+.similarity-panel { margin-bottom: 22px; padding: 0 14px 14px; }
+.similarity-head { position: relative; z-index: 2; min-height: 52px; margin: 0 -14px; padding: 10px 14px; display: flex; align-items: center; border-bottom: 1px solid rgba(205,219,222,.20); background: linear-gradient(90deg, rgba(19,35,51,.94), rgba(7,24,37,.55)); }
+.similarity-head span { display: block; margin-top: 5px; color: var(--dm-ice-1); font-family: var(--display); font-size: .56rem; letter-spacing: .08em; text-transform: uppercase; }
+.similarity-list { position: relative; z-index: 2; display: grid; gap: 6px; padding-top: 10px; }
+.similarity-match { display: grid; grid-template-columns: 42px minmax(0,1fr) minmax(0,1fr) 86px; align-items: center; gap: 10px; min-height: 68px; padding: 8px 12px; border: 1px solid rgba(205,219,222,.16); background: rgba(4,17,28,.68); }
+.similarity-rank { color: var(--dm-teal); font-family: var(--display); font-size: .9rem; font-weight: 900; }
+.similarity-team { min-width: 0; display: grid; grid-template-columns: auto minmax(0,1fr); grid-template-rows: auto auto auto; column-gap: 9px; align-items: center; }
+.similarity-team .team-logo, .similarity-team .team-logo-fallback { grid-row: 1 / 4; }
+.similarity-team strong { overflow: hidden; color: var(--dm-white); font-family: var(--display); font-size: .72rem; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.similarity-team small { color: var(--dm-ice-2); font-size: .68rem; }
+.similarity-team em { color: var(--dm-ice-1); font-family: var(--display); font-size: .5rem; font-style: normal; letter-spacing: .07em; text-transform: uppercase; }
+.similarity-score { text-align: right; font-family: var(--display); }
+.similarity-score strong, .similarity-score span, .similarity-score small { display: block; }
+.similarity-score strong { color: var(--dm-teal); font-size: 1.1rem; }
+.similarity-score span { color: var(--dm-ice-2); font-size: .52rem; text-transform: uppercase; }
+.similarity-score small { margin-top: 3px; color: var(--dm-ice-1); font-size: .48rem; text-transform: uppercase; }
+.similarity-players { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 5px; padding-top: 5px; }
+.similarity-players span { padding: 4px 6px; border: 1px solid rgba(0,168,120,.28); background: rgba(0,168,120,.06); color: var(--dm-ice-2); font-size: .68rem; }
+
+@media (max-width: 760px) {
+  .similarity-match { grid-template-columns: 32px minmax(0,1fr) minmax(0,1fr) 64px; padding: 8px; }
+  .similarity-team .team-logo, .similarity-team .team-logo-fallback { width: 36px !important; height: 36px !important; }
+  .similarity-team strong { font-size: .6rem; }
+  .similarity-score small { display: none; }
+}

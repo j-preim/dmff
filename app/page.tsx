@@ -106,8 +106,8 @@ export default async function Home() {
           )}
         </section>
 
-        <RosterSimilarity leagues={leagues} />
-        
+        {/* <RosterSimilarity leagues={leagues} /> */}
+
       </div>
     </main>
   );

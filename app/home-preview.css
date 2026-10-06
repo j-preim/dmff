@@ -433,14 +433,14 @@ body:has(.home-page) .site-footer { display: none; }
   width: 76px;
   height: 82px;
   display: grid;
-  place-items: center;
+  justify-items: center;
   border: 6px solid #5fb709;
   border-top-width: 10px;
   background: linear-gradient(180deg, rgba(95,183,9,.34), rgba(0,168,120,.14));
   box-shadow: 0 0 18px rgba(95,183,9,.20);
   clip-path: polygon(14% 0, 86% 0, 86% 16%, 100% 16%, 96% 56%, 70% 64%, 65% 77%, 78% 84%, 78% 100%, 22% 100%, 22% 84%, 35% 77%, 30% 64%, 4% 56%, 0 16%, 14% 16%);
 }
-.trophy-mark img { width: 44px; height: auto; }
+.trophy-mark img { width: 44px; height: auto; padding-top: 4px; }
 .trophy-column > strong {
   color: #e1e9eb;
   font-family: var(--display);

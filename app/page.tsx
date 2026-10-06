@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChampionRoad } from "@/components/ChampionRoad";
 import { LeagueLeaders } from "@/components/LeagueLeaders";
 import { TeamLogo } from "@/components/TeamLogo";
+import { RosterSimilarity } from "@/components/RosterSimilarity";
 import { getLeagues } from "@/lib/espn";
 import { rankTeams } from "@/lib/rankings";
 
@@ -70,6 +71,8 @@ export default async function Home() {
 
           <ChampionRoad leagues={leagues} />
         </div>
+
+        <RosterSimilarity leagues={leagues} />
 
         <section className="preview-panel power-strip power-leaderboard">
           <div className="power-strip-head">

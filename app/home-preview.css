@@ -597,23 +597,21 @@ body:has(.home-page) .site-footer { display: none; }
 .similarity-head span { display: block; margin-top: 5px; color: var(--dm-ice-1); font-family: var(--display); font-size: .56rem; letter-spacing: .08em; text-transform: uppercase; }
 .similarity-list { position: relative; z-index: 2; display: grid; gap: 6px; padding-top: 10px; }
 .similarity-match { display: grid; grid-template-columns: 42px minmax(0,1fr) 24px minmax(0,1fr) 86px; align-items: center; gap: 10px; min-height: 68px; padding: 8px 12px; border: 1px solid rgba(205,219,222,.16); background: rgba(4,17,28,.68); }
-.similarity-match-first { min-height: 116px; border-color: rgba(95,183,9,.48); border-left: 4px solid var(--dm-green); background: linear-gradient(90deg, rgba(95,183,9,.11), rgba(19,35,51,.30) 46%, rgba(0,168,120,.06)); }
 .similarity-rank { color: var(--dm-teal); font-family: var(--display); font-size: .9rem; font-weight: 900; }
-.similarity-match-first .similarity-rank { color: var(--dm-green); font-size: 1.45rem; }
 .similarity-team { min-width: 0; display: grid; grid-template-columns: auto minmax(0,1fr); grid-template-rows: auto auto; column-gap: 9px; align-items: center; }
 .similarity-team .team-logo, .similarity-team .team-logo-fallback { grid-row: 1 / 3; }
 .similarity-team strong { overflow: hidden; color: var(--dm-white); font-family: var(--display); font-size: .72rem; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
 .similarity-team small { color: var(--dm-ice-1); font-family: var(--display); font-size: .5rem; letter-spacing: .07em; text-transform: uppercase; }
-.similarity-vs { color: var(--dm-ice-1); font-family: var(--display); font-size: 1rem; text-align: center; }
+.similarity-vs { display: grid; place-items: center; width: 24px; height: 34px; color: var(--dm-teal); font-family: var(--display); text-align: center; }
+.similarity-vs i { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--dm-teal); background: rgba(0,168,120,.08); box-shadow: 3px 3px 0 rgba(95,183,9,.18); font-size: 1.15rem; font-style: normal; font-weight: 900; line-height: 1; transform: rotate(45deg); }
+.similarity-vs i::first-letter { transform: rotate(-45deg); }
 .similarity-score { text-align: right; font-family: var(--display); }
 .similarity-score strong, .similarity-score span, .similarity-score small { display: block; }
 .similarity-score strong { color: var(--dm-teal); font-size: 1.1rem; }
-.similarity-match-first .similarity-score strong { color: var(--dm-green); font-size: 1.5rem; }
 .similarity-score span { color: var(--dm-ice-2); font-size: .52rem; text-transform: uppercase; }
 .similarity-score small { margin-top: 3px; color: var(--dm-ice-1); font-size: .48rem; text-transform: uppercase; }
 .similarity-players { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 5px; padding-top: 5px; }
 .similarity-players span { padding: 4px 6px; border: 1px solid rgba(0,168,120,.28); background: rgba(0,168,120,.06); color: var(--dm-ice-2); font-size: .68rem; }
-.similarity-match:not(.similarity-match-first) .similarity-players { display: none; }
 
 @media (max-width: 760px) {
   .similarity-match { grid-template-columns: 32px minmax(0,1fr) 18px minmax(0,1fr) 64px; padding: 8px; }

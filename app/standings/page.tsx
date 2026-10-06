@@ -12,7 +12,7 @@ export default async function StandingsPage() {
           const teams = [...league.teams].sort((a, b) => b.record.percentage - a.record.percentage || b.pointsFor - a.pointsFor);
           return (
             <section className="panel table-panel" key={league.id}>
-              <div className="table-title"><div><span className="eyebrow">LEAGUE {index + 1}</span><h2>{league.name}</h2></div><LeagueStatus league={league}/></div>
+              <div className="table-title"><div><span className="eyebrow">LEAGUE {index + 1}</span><h2>{league.name}</h2></div></div>
               <div className="data-table standings-table">
                 <div className="table-row table-head"><span>Seed</span><span>Team</span><span>W-L-T</span><span>PF</span><span>PA</span><span>Streak</span></div>
                 {teams.map((team, i) => (

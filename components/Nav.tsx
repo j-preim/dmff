@@ -13,6 +13,7 @@ const links = [
 
 export function Nav() {
   const pathname = usePathname();
+  const currentPath = pathname || "/";
   return (
     <header className="site-header">
       <div className="nav-shell preview-nav-shell">
@@ -22,7 +23,7 @@ export function Nav() {
         </Link>
         <nav className="main-nav preview-main-nav" aria-label="Main navigation">
           {links.map(([href, label]) => {
-            const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
+            const active = href === "/" ? currentPath === "/" : currentPath.startsWith(href);
             return <Link key={href} href={href} className={active ? "active" : undefined} aria-current={active ? "page" : undefined}>{label}</Link>;
           })}
         </nav>

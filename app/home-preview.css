@@ -289,7 +289,7 @@ body:has(.home-page) .site-footer { display: none; }
   border-bottom: 1px solid rgba(205,219,222,.20);
   color: #cddbdd;
   font-family: var(--display);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
 }

@@ -47,7 +47,6 @@ export default async function RostersPage() {
                       <details className="roster-bench">
                         <summary style={{ cursor: "pointer", padding: "12px 14px", background: "var(--dm-navy)", color: "var(--dm-ice-2)", fontWeight: 700, borderTop: "2px solid var(--dm-teal)" }}>
                           BENCH ({team.roster.filter((player) => player.lineupSlot === "BE" || player.lineupSlot === "IR").length})
-                          <span style={{ float: "right", color: "var(--dm-teal)" }}>▾</span>
                         </summary>
                         {team.roster.filter((player) => player.lineupSlot === "BE" || player.lineupSlot === "IR").map((player) => (
                           <div className="player-row" key={`${team.id}-${player.id}-${player.lineupSlot}`}>

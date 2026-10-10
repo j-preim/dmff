@@ -16,7 +16,7 @@ export function BenchControls({ children }: { children: ReactNode }) {
 
   function syncExpanded() {
     const benches = containerRef.current?.querySelectorAll<HTMLDetailsElement>("details.roster-bench");
-    setAllExpanded(Boolean(benches?.length) && Array.from(benches).every((bench) => bench.open));
+    setAllExpanded(benches !== undefined && benches.length > 0 && Array.from(benches).every((bench) => bench.open));
   }
 
   return (

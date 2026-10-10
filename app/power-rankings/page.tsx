@@ -8,7 +8,7 @@ export default async function PowerRankingsPage() {
 
   return (
     <main className="page-shell page-top">
-      <div className="page-title"><span className="eyebrow">2026 combined board</span><h1>Power Rankings</h1><p>Initial index: 65% record, 35% points scored relative to the current field.</p></div>
+      <div className="page-title"><span className="eyebrow">2026 combined board</span><h1>Power Rankings</h1><p>How it's calculated: 60% winning percentage, 40% points scored relative to the current field.</p></div>
       <section className="panel table-panel">
         <div className="data-table rankings-table">
           <div className="table-row table-head"><span>Rank</span><span>Team</span><span>League</span><span>Record</span><span>PF</span><span>Power</span></div>

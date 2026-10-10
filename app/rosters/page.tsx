@@ -1,5 +1,6 @@
 import { getLeagues } from "@/lib/espn";
 import { TeamLogo } from "@/components/TeamLogo";
+import { BenchControls } from "@/components/BenchControls";
 
 const STARTER_SLOT_ORDER = ["QB", "RB", "RB", "WR", "WR", "FLEX", "SFLEX", "D/ST", "K"];
 
@@ -20,6 +21,7 @@ export default async function RostersPage() {
   return (
     <main className="page-shell page-top">
       <div className="page-title"><span className="eyebrow">Players by team</span><h1>Rosters</h1><p>Current starting lineups and expandable benches from the ESPN roster feed.</p></div>
+      <BenchControls>
       <div className="stack">
         {leagues.map((league, index) => (
           <section key={league.id}>
@@ -43,9 +45,9 @@ export default async function RostersPage() {
                     ))}
                     {team.roster.some((player) => player.lineupSlot === "BE" || player.lineupSlot === "IR") && (
                       <details className="roster-bench">
-                        <summary style={{ cursor: "pointer", padding: "12px 14px", background: "#132333", color: "#E1E9EB", fontWeight: 700, borderTop: "2px solid #5FB709" }}>
+                        <summary style={{ cursor: "pointer", padding: "12px 14px", background: "var(--dm-navy)", color: "var(--dm-ice-2)", fontWeight: 700, borderTop: "2px solid var(--dm-teal)" }}>
                           BENCH ({team.roster.filter((player) => player.lineupSlot === "BE" || player.lineupSlot === "IR").length})
-                          <span style={{ float: "right", color: "#5FB709" }}>▾</span>
+                          <span style={{ float: "right", color: "var(--dm-teal)" }}>▾</span>
                         </summary>
                         {team.roster.filter((player) => player.lineupSlot === "BE" || player.lineupSlot === "IR").map((player) => (
                           <div className="player-row" key={`${team.id}-${player.id}-${player.lineupSlot}`}>
@@ -64,6 +66,7 @@ export default async function RostersPage() {
           </section>
         ))}
       </div>
+      </BenchControls>
     </main>
   );
 }

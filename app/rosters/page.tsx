@@ -19,7 +19,7 @@ export default async function RostersPage() {
   const leagues = await getLeagues();
   return (
     <main className="page-shell page-top">
-      <div className="page-title"><span className="eyebrow">Players by team</span><h1>Rosters</h1><p>Current starting lineups from the ESPN roster feed.</p></div>
+      <div className="page-title"><span className="eyebrow">Players by team</span><h1>Rosters</h1><p>Current starting lineups and expandable benches from the ESPN roster feed.</p></div>
       <div className="stack">
         {leagues.map((league, index) => (
           <section key={league.id}>
@@ -41,6 +41,21 @@ export default async function RostersPage() {
                         <span className="player-points">{player.positionRank ? `${player.position}${player.positionRank}` : "—"}</span>
                       </div>
                     ))}
+                    {team.roster.some((player) => player.lineupSlot === "BE" || player.lineupSlot === "IR") && (
+                      <details className="roster-bench">
+                        <summary style={{ cursor: "pointer", padding: "12px 14px", background: "#132333", color: "#E1E9EB", fontWeight: 700, borderTop: "2px solid #5FB709" }}>
+                          BENCH ({team.roster.filter((player) => player.lineupSlot === "BE" || player.lineupSlot === "IR").length})
+                          <span style={{ float: "right", color: "#5FB709" }}>▾</span>
+                        </summary>
+                        {team.roster.filter((player) => player.lineupSlot === "BE" || player.lineupSlot === "IR").map((player) => (
+                          <div className="player-row" key={`${team.id}-${player.id}-${player.lineupSlot}`}>
+                            <span className="position-chip">{player.lineupSlot}</span>
+                            <span><strong>{player.fullName}<span className="injury-status">{player.injuryStatus && player.injuryStatus !== "ACTIVE" ? ` ${player.injuryStatus}` : ""}</span></strong><small>{player.position}{` · ${player.proTeam}`}</small></span>
+                            <span className="player-points">{player.positionRank ? `${player.position}${player.positionRank}` : "—"}</span>
+                          </div>
+                        ))}
+                      </details>
+                    )}
                     {!team.roster.length && <div className="empty-state compact"><span>Roster unavailable.</span></div>}
                   </div>
                 </article>

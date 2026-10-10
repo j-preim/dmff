@@ -1,6 +1,6 @@
 import { getLeagues } from "@/lib/espn";
 import { TeamLogo } from "@/components/TeamLogo";
-import { BenchControls } from "@/components/BenchControls";
+import { BenchControls } from "../../components/BenchControls";
 
 const STARTER_SLOT_ORDER = ["QB", "RB", "RB", "WR", "WR", "FLEX", "SFLEX", "D/ST", "K"];
 

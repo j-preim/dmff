@@ -71,17 +71,17 @@ function LeagueBracket({ league, number }: { league: FantasyLeague; number: numb
         <div className="bracket-scroll">
           <div className="bracket-columns">
             <div className="bracket-round">
-              <h3>First round</h3>
+              <h3>First round <span className="bracket-week">NFL Week 14</span></h3>
               <Match title="Game A" top={seed(4)} bottom={seed(5)} />
               <Match title="Game B" top={seed(3)} bottom={seed(6)} />
             </div>
             <div className="bracket-round bracket-round-semis">
-              <h3>Semifinals</h3>
+              <h3>Semifinals <span className="bracket-week">NFL Week 15</span></h3>
               <Match title="Game C" top={seed(1)} bottom={{ label: "Winner of Game A" }} note="#1 seed: bye" />
               <Match title="Game D" top={seed(2)} bottom={{ label: "Winner of Game B" }} note="#2 seed: bye" />
             </div>
             <div className="bracket-round bracket-round-final">
-              <h3>League championship</h3>
+              <h3>League championship <span className="bracket-week">NFL Week 16</span></h3>
               <Match title="League final" top={{ label: "Winner of Game C" }} bottom={{ label: "Winner of Game D" }} />
               <div className="bracket-champ">
                 <span>League champion</span>
@@ -108,7 +108,7 @@ export default async function PlayoffsPage() {
         {leagues.map((league, i) => <LeagueBracket key={league.id} league={league} number={i + 1} />)}
       </div>
       <section className="faceoff-finale" aria-label="Digital Mass Fantasy Faceoff championship">
-        <span className="eyebrow">Ultimate championship</span>
+        <span className="eyebrow">Ultimate championship · NFL Week 17</span>
         <h2>Digital Mass Fantasy Faceoff</h2>
         <div className="faceoff-contenders">
           {leagues.map((league, index) => {

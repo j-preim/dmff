@@ -5,7 +5,7 @@ export function rankTeams(teams: FantasyTeam[]): PowerRankedTeam[] {
   return teams
     .map((team) => ({
       ...team,
-      powerScore: 100 * (0.60 * team.record.percentage + 0.40 * (team.pointsFor / maxPoints)),
+      powerScore: 100 * (0.30 * team.record.percentage + 0.70 * (team.pointsFor / maxPoints)),
       rank: 0
     }))
     .sort((a, b) => b.powerScore - a.powerScore)

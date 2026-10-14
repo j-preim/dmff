@@ -29,3 +29,5 @@
 .faceoff-contender strong{font-family:var(--display);font-size:clamp(.84rem,1.8vw,1.2rem);overflow-wrap:anywhere}
 .faceoff-finale p{font-size:.86rem;color:var(--dm-ice-1);margin-bottom:0}
 @media(max-width:600px){.bracket-league{padding:15px}.faceoff-finale{padding:22px 12px}.faceoff-contenders{gap:9px}.faceoff-contender{padding:15px 8px}}
+
+.bracket-round h3 .bracket-week{display:block;color:var(--dm-ice-2);font-size:.67rem;margin-top:7px;letter-spacing:.06em}

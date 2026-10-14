@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { FantasyLeague } from "@/lib/types";
 import { getChampion } from "@/lib/espn";
 import { TeamLogo } from "./TeamLogo";
@@ -9,7 +10,10 @@ export function ChampionRoad({ leagues }: { leagues: FantasyLeague[] }) {
 
   return (
     <section className="preview-panel road-panel">
+       <div className="power-strip-head">
       <div className="preview-panel-title">Road to the Faceoff</div>
+      <Link href="/power-rankings">View full playoff bracket →</Link>
+    </div>
       <div className="road-grid">
         <div className="road-side">
           <span className="road-label">League 1 Champion</span>

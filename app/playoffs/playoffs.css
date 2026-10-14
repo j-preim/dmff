@@ -1,0 +1,31 @@
+.playoffs-page .page-title{margin-bottom:34px}
+.playoff-brackets{display:grid;gap:32px}
+.bracket-league{background:linear-gradient(145deg,rgba(19,35,51,.95),rgba(8,16,24,.95));border:1px solid var(--border);border-radius:9px;padding:24px}
+.bracket-heading h2,.faceoff-finale h2{font-family:var(--display);text-transform:uppercase;margin:0;font-size:clamp(1.2rem,2.8vw,1.9rem)}
+.bracket-heading p{color:var(--dm-ice-1);margin:10px 0 22px;font-size:.9rem}
+.bracket-scroll{overflow-x:auto;padding-bottom:8px}
+.bracket-columns{display:grid;grid-template-columns:repeat(3,minmax(255px,1fr));gap:22px;min-width:805px}
+.bracket-round{display:flex;flex-direction:column;gap:24px}
+.bracket-round h3{font-family:var(--display);font-size:.77rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dm-teal);border-bottom:1px solid var(--border);padding-bottom:12px;margin:0}
+.bracket-round-semis{justify-content:flex-start;gap:28px}
+.bracket-round-final{justify-content:flex-start}
+.bracket-match{background:rgba(8,16,24,.72);border:1px solid rgba(225,233,235,.22);border-left:3px solid var(--dm-teal);border-radius:5px;overflow:hidden}
+.bracket-match-title{padding:8px 12px;font-family:var(--display);font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;color:var(--dm-ice-1);background:rgba(0,168,120,.08)}
+.bracket-match-teams{padding:0 10px}
+.bracket-team{display:flex;align-items:center;gap:9px;min-height:56px;padding:8px 0}
+.bracket-team+.bracket-team{border-top:1px solid var(--border)}
+.bracket-seed{font-family:var(--display);color:var(--dm-teal);font-size:.83rem;min-width:18px}
+.bracket-team-info{min-width:0}
+.bracket-team-info strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.82rem}
+.bracket-team-info small{display:block;color:var(--dm-ice-1);font-size:.7rem;margin-top:3px}
+.bracket-tbd{color:var(--dm-ice-1);font-size:.83rem}
+.bracket-match-note{color:var(--dm-teal);font-family:var(--display);font-size:.59rem;text-transform:uppercase;letter-spacing:.07em;padding:0 12px 10px}
+.bracket-champ{border:1px dashed var(--dm-teal);border-radius:5px;padding:14px}
+.bracket-champ span,.faceoff-contender span{display:block;font-family:var(--display);color:var(--dm-teal);text-transform:uppercase;letter-spacing:.06em;font-size:.64rem;margin-bottom:8px}
+.bracket-champ strong{font-size:.9rem}
+.faceoff-finale{text-align:center;margin-top:35px;border:1px solid var(--dm-teal);background:linear-gradient(140deg,rgba(0,168,120,.13),rgba(19,35,51,.95));padding:30px;border-radius:9px}
+.faceoff-contenders{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:26px auto;max-width:800px}
+.faceoff-contender{border:1px solid var(--border);background:rgba(8,16,24,.7);padding:22px 12px;border-radius:5px}
+.faceoff-contender strong{font-family:var(--display);font-size:clamp(.84rem,1.8vw,1.2rem);overflow-wrap:anywhere}
+.faceoff-finale p{font-size:.86rem;color:var(--dm-ice-1);margin-bottom:0}
+@media(max-width:600px){.bracket-league{padding:15px}.faceoff-finale{padding:22px 12px}.faceoff-contenders{gap:9px}.faceoff-contender{padding:15px 8px}}

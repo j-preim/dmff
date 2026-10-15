@@ -1,7 +1,7 @@
 /* Homepage reference build: dimensions and visual hierarchy are keyed to the approved 1312×1199 mockup. */
 
 body:has(.home-page) { background: #04121d; }
-body:has(.home-page) .site-footer { display: none; }
+/* body:has(.home-page) .site-footer { display: none; } */
 
 .site-header {
   position: relative;
@@ -451,7 +451,7 @@ body:has(.home-page) .site-footer { display: none; }
   text-transform: uppercase;
 }
 
-.power-strip { min-height: 132px; padding: 0 14px 10px; margin-bottom: 22px;}
+.power-strip { min-height: 132px; padding: 0 14px 18px; margin-bottom: 22px;}
 .power-strip-head {
   position: relative;
   z-index: 2;

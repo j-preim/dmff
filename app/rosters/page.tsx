@@ -18,6 +18,17 @@ function startersInEspnOrder<T extends { lineupSlot: string }>(roster: T[]) {
 
 export default async function RostersPage() {
   const leagues = await getLeagues();
+  const closestMatch = (team: (typeof leagues)[number]["teams"][number]) => {
+    const other = leagues.filter((league) => league.id !== team.leagueId).flatMap((league) => league.teams);
+    if (!team.roster.length) return null;
+    const ids = new Set(team.roster.map((player) => player.id));
+    const candidates = other.filter((candidate) => candidate.roster.length).map((candidate) => ({
+      team: candidate,
+      sharedIds: new Set(candidate.roster.filter((player) => ids.has(player.id)).map((player) => player.id))
+    }));
+    return candidates.sort((a, b) => b.sharedIds.size - a.sharedIds.size ||
+      a.team.name.localeCompare(b.team.name) || a.team.id - b.team.id)[0] ?? null;
+  };
   return (
     <main className="page-shell page-top">
       <div className="page-title"><span className="eyebrow">Players by team</span><h1>Rosters</h1><p>Current starting lineups and expandable benches from the ESPN roster feed.</p></div>
@@ -27,9 +38,16 @@ export default async function RostersPage() {
           <section key={league.id}>
             <div className="section-heading"><span className="eyebrow">LEAGUE {index + 1}</span><h2>{league.name}</h2></div>
             <div className="roster-grid">
-              {league.teams.map((team) => (
+              {league.teams.map((team) => {
+                const closest = closestMatch(team);
+                return (
                 <article className="panel roster-card" key={team.id}>
                   <div className="roster-header"><TeamLogo src={team.logo} name={team.abbrev} size={52}/><div><h3>{team.name}</h3><span>{team.manager} · {team.record.wins}-{team.record.losses}</span></div></div>
+                  {closest && <div className="roster-closest">
+                    <span>Closest match in {closest.team.leagueName}</span>
+                    <strong>{closest.team.name}</strong>
+                    <small>{closest.team.manager} · {closest.sharedIds.size} shared {closest.sharedIds.size === 1 ? "player" : "players"}</small>
+                  </div>}
                   <div className="mini-roster">
                     <div className="player-row header">
                       <span className="player-position">Pos</span>
@@ -39,7 +57,7 @@ export default async function RostersPage() {
                     {startersInEspnOrder(team.roster).map((player) => (
                       <div className="player-row" key={`${team.id}-${player.id}-${player.lineupSlot}`}>
                         <span className="position-chip">{player.lineupSlot}</span>
-                        <span><strong>{player.fullName}<span className="injury-status">{player.injuryStatus && player.injuryStatus !== "ACTIVE" ? ` ${player.injuryStatus}` : ""}</span></strong><small>{player.position}{` · ${player.proTeam}`}</small></span>
+                        <span><strong>{player.fullName}{closest?.sharedIds.has(player.id) && <span className="roster-shared" title={`Also on ${closest.team.name}`} aria-label={`Also on ${closest.team.name}`}>◆</span>}<span className="injury-status">{player.injuryStatus && player.injuryStatus !== "ACTIVE" ? ` ${player.injuryStatus}` : ""}</span></strong><small>{player.position}{` · ${player.proTeam}`}</small></span>
                         <span className="player-points">{player.positionRank ? `${player.position}${player.positionRank}` : "—"}</span>
                       </div>
                     ))}
@@ -60,7 +78,7 @@ export default async function RostersPage() {
                     {!team.roster.length && <div className="empty-state compact"><span>Roster unavailable.</span></div>}
                   </div>
                 </article>
-              ))}
+              );})}
             </div>
           </section>
         ))}

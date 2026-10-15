@@ -69,7 +69,7 @@ export default async function RostersPage() {
                         {team.roster.filter((player) => player.lineupSlot === "BE" || player.lineupSlot === "IR").map((player) => (
                           <div className="player-row" key={`${team.id}-${player.id}-${player.lineupSlot}`}>
                             <span className="position-chip">{player.lineupSlot}</span>
-                            <span><strong>{player.fullName}<span className="injury-status">{player.injuryStatus && player.injuryStatus !== "ACTIVE" ? ` ${player.injuryStatus}` : ""}</span></strong><small>{player.position}{` · ${player.proTeam}`}</small></span>
+                            <span><strong>{player.fullName}{closest?.sharedIds.has(player.id) && <span className="roster-shared" title={`Also on ${closest.team.name}`} aria-label={`Also on ${closest.team.name}`}>◆</span>}<span className="injury-status">{player.injuryStatus && player.injuryStatus !== "ACTIVE" ? ` ${player.injuryStatus}` : ""}</span></strong><small>{player.position}{` · ${player.proTeam}`}</small></span>
                             <span className="player-points">{player.positionRank ? `${player.position}${player.positionRank}` : "—"}</span>
                           </div>
                         ))}

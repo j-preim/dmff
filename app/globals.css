@@ -255,3 +255,9 @@ img { max-width: 100%; }
   .power-team-main span { font-size: .68rem; }
   .power-score strong { font-size: .85rem; }
 }
+
+.roster-closest { display: grid; gap: 4px; padding: 10px 12px; margin: 0 0 12px; border-left: 3px solid var(--dm-teal); background: var(--dm-navy); }
+.roster-closest > span { color: var(--dm-teal); font: 700 .62rem var(--display); text-transform: uppercase; }
+.roster-closest > strong { color: var(--dm-ice-4); font: 700 .78rem var(--display); }
+.roster-closest > small { color: var(--dm-ice-1); font-size: .76rem; }
+.roster-shared { display: inline-block; margin-left: 7px; color: var(--dm-green); font-size: .72rem; vertical-align: middle; }
